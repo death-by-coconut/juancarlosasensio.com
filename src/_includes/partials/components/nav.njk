@@ -9,12 +9,16 @@
           {% set relAttribute = ' rel="' + item.rel + '"' %}
         {% endif %}
 
+        {% if item.external %}
+          {% set targetAttr = 'target="_blank"' %}
+        {% endif%}
+
         {% if page.url == item.url %}
           {% set currentAttribute = ' aria-current="page"' %}
         {% endif %}
 
         <li class="nav__item">
-          <a href="{{ item.url }}"{{ relAttribute | safe }}{{ currentAttribute | safe }}>{{ item.text }}</a>
+          <a href="{{ item.url }}"{{ relAttribute | safe }}{{ currentAttribute | safe }}{{ targetAttr | safe }}>{{ item.text }}</a>
         </li>
       {% endfor %}
     </ul>

@@ -10,6 +10,10 @@
 {% set postListHeading = postsHeading %}
 {% set postListItems = collections.postFeed %}
 
+{# Pen list content #}
+{% set penListHeading = pensHeading %}
+{% set penListItems = collections.pens %}
+
 {# Archive link #}
 {% if postListItems.length < collections.posts.length %} 
   {% set paginationNextText = archiveButtonText %}
@@ -20,6 +24,7 @@
   <main id="main-content" tabindex="-1">
     {% include "partials/components/intro.njk" %}
     {% include "partials/components/post-list.njk" %}
+    {% include "partials/components/pen-list.njk" %}
     {% include "partials/components/pagination.njk" %}
   </main>
 {% endblock %}
