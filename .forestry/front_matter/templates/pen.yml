@@ -25,6 +25,12 @@ fields:
     min: 
     max: 
   label: tags
+- name: link
+  type: text
+  config:
+    required: false
+  label: link
+  description: Link to pen on Codepen
 - name: image_url
   type: text
   config:
