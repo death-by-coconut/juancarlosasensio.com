@@ -4,10 +4,10 @@
  * A little wrapper that lets you define your dark mode custom 
  * properties in a way that supports the theme toggle web component
  */
-@mixin dark-mode() {
-  @media (prefers-color-scheme: dark) {
+@mixin light-mode() {
+  @media (prefers-color-scheme: light) {
     :root {
-      --color-mode: 'dark';
+      --color-mode: 'light';
     }
 
     :root:not([data-user-color-scheme]) {
@@ -15,7 +15,7 @@
     }
   }
 
-  [data-user-color-scheme='dark'] {
+  [data-user-color-scheme='light'] {
     @content;
   }
 }
