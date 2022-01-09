@@ -28,7 +28,8 @@ fields:
 - name: link
   type: text
   config:
-    required: false
+    required: true
+    min: 5
   label: link
   description: Link to pen on Codepen
 - name: image_url
