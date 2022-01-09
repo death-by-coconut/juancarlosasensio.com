@@ -6,6 +6,28 @@ fields:
   type: text
   config:
     required: false
-  label: Title
   description: Title of pen in Codepen
   hidden: false
+  label: title
+- name: date
+  type: datetime
+  label: date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+- name: tags
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: tags
+- name: image_url
+  type: text
+  config:
+    required: false
+  label: image_url
+  description: Image path/url provided by Codepen
