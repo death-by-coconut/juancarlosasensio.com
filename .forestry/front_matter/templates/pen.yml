@@ -31,3 +31,5 @@ fields:
     required: false
   label: image_url
   description: Image path/url provided by Codepen
+pages:
+- src/pens/comparator-of-repos.md
