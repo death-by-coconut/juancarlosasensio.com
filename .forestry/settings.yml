@@ -11,6 +11,8 @@ sections:
   label: Demos (CodePen)
   create: documents
   match: "*.md"
+  templates:
+  - demo
 - type: directory
   path: src/posts
   label: Posts
