@@ -7,8 +7,8 @@ sections:
 - type: heading
   label: Content
 - type: directory
-  path: src/pens
-  label: Pens (CodePen)
+  path: src/demos
+  label: Demos (CodePen)
   create: documents
   match: "*.md"
 - type: directory
