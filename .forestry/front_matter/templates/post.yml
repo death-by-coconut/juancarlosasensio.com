@@ -21,4 +21,5 @@ fields:
     maxSize: 64
   label: image
 pages:
+- src/posts/mix-and-match.md
 - src/posts/picking-the-fruits-of-the-mind.md
