@@ -1,0 +1,27 @@
+---
+title: 'Demos'
+layout: 'demos'
+permalink: '/demos/index.html'
+---
+
+{% set demoList = collections.demos %}
+{% set demoNavItems = demoList | getUniqueTagsList %}
+
+<main>
+  <article class="">
+    <header>
+      <h1>Demos</h1>
+      <p>
+            This is a summary of some of
+            <a href="https://twitter.com/toysoldier182">Juan Carlos's</a> work on
+            <a href="https://codepen.io/jcasensio">CodePen</a>.
+          </p>
+    </header>
+    <nav>
+      {% include "partials/components/demo-nav-items.njk" %}
+    </nav>
+    <ul class="list">
+      {% include "partials/components/demo-list.njk" %}
+    </ul>
+  </article>
+</main>
