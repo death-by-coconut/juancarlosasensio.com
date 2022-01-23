@@ -30,21 +30,6 @@
         <span>{{ collections[tag].length }}</span>
       </p>
     {% endfor %}
-    {# <p>{{ collections | keys | dump(2) | safe }}</p>
-
-    <section>
-      {%- for tag, posts in collections %}
-    tag: {{ tag }}, posts: {{ posts | length }}<br/>
-      {%- endfor %}
-    </section>
-
-    <hr>
-
-    <section>
-      {%- for tag2, posts2 in collections | dictsort %}
-    tag: {{ tag2 }}, posts: {{ posts2 | length }};<br/>
-      {%- endfor %}
-    </section> #}
 
     {% include "partials/components/intro.njk" %}
     {% include "partials/components/post-list.njk" %}

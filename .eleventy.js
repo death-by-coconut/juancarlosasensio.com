@@ -21,7 +21,6 @@ module.exports = function(config) {
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
-  config.addFilter("keys", obj => Object.keys(obj));
   config.addFilter("getUniqueTagsList", getUniqueTagsList);
   config.addFilter("onlyUniqueFilter", onlyUniqueFilter);
 
@@ -43,38 +42,7 @@ module.exports = function(config) {
   config.addPassthroughCopy('src/robots.txt');
 
   const now = new Date();
-
-  //Get demos
-  // const getDemos = (collectionApi) => {
-  //   return [
-  //     ...collectionApi.getFilteredByGlob('./src/demos/*.md')
-  //   ].reverse();
-  // }
-
-  // const getDemosUniqueTags = (collectionApi) => {
-  //   let tags = [];
-  //   const demosCollection = getDemos(collectionApi);
-
-  //   demosCollection.forEach(demo => {
-  //     tags = [...tags, ...demo.data.tags]
-  //   })
-  //   return tags.filter(onlyUniqueFilter)
-  // }
   
-
-  // config.addCollection("tagList", require("./src/utils/getTagList.js"));
-
-  /* TODO: in order to "fix" the bug of post-list.njk not working when adding the demoTags collection, I'm thinking of using a util function that can get me the unique tags for a specific collection, for example getTagListFor("demos") will return unique tags only for the "demos" collection.
-
-  One idea is to add a function that uses a closure function to specifcy the collection ('demos') over another function that gets the unique tags. In this way, we could call getTagListFor('posts'), getTagListFor('demos') and so on...
-  
-  Useful links:
-  https://www.markllobrera.com/posts/eleventy-tag-list-sorting-and-post-count/
-  https://github.com/philhawksworth/hawksworx.com/blob/master/src/site/_filters/getTagList.js
-  https://github.com/11ty/eleventy/pull/1060
-  */
-  // config.addNunjucksGlobal("getTagListFor", closureStyle = (arrow) => console.log(arrow))
-
   // Custom collections
   config.addCollection("allMyContent", function(collectionApi) {
     return collectionApi.getAll();
@@ -97,8 +65,8 @@ module.exports = function(config) {
 
   // config.addCollection('demoTags', getDemosUniqueTags)
 
-  config.addCollection('postFeed', collection => {
-    return [...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
+  config.addCollection('postFeed', collectionApi => {
+    return [...collectionApi.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
       .reverse()
       .slice(0, site.maxPostsPerPage);
   });
