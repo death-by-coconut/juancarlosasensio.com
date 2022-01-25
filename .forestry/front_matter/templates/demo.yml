@@ -40,4 +40,5 @@ fields:
     time_format: 
     display_utc: false
 pages:
+- src/demos/ajax-type-ahead.md
 - src/demos/comparator-of-repos.md
