@@ -3,28 +3,31 @@
 {# Intro content #}
 {% set introHeading = title %}
 {% set introSummary %}
-  {{ content | safe }}
+{{ content | safe }}
 {% endset %}
 
 {# Post list content #}
 {% set postListHeading = postsHeading %}
 {% set postListItems = collections.postFeed %}
 
-{# Pen list content #}
-{% set penListHeading = pensHeading %}
-{% set penListItems = collections.pens %}
-
 {# Archive link #}
-{% if postListItems.length < collections.posts.length %} 
+{% if postListItems.length < collections.posts.length %}
   {% set paginationNextText = archiveButtonText %}
   {% set paginationNextUrl = '/archive' %}
 {% endif %}
 
 {% block content %}
   <main id="main-content" tabindex="-1">
+
+    {% for tag in collections.tagList%}
+      <p class="postlist-item">
+        {{tag}}
+        <span>{{ collections[tag].length }}</span>
+      </p>
+    {% endfor %}
+
     {% include "partials/components/intro.njk" %}
     {% include "partials/components/post-list.njk" %}
-    {% include "partials/components/pen-list.njk" %}
     {% include "partials/components/pagination.njk" %}
   </main>
 {% endblock %}

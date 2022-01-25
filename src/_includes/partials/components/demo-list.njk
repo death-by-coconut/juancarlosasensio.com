@@ -1,0 +1,24 @@
+{% if demoList.length >= 1 %}
+  {% for item in demoList %}
+    {% set itemTitle = '' %}
+
+    {% if item.data.title %}
+      {% set itemTitle = item.data.title %}
+    {% endif %}
+
+    <li class="{{item.data.tags[0]}}">
+      <a href="{{item.data.link}}">
+        <img 
+          src="{{item.data.image_url}}"
+          onload="this.className = 'loaded'"
+          alt="{{item.data.title}}">
+      </a>
+      <aside>
+        <h2 class="not-permalink">
+          <a href="{{item.data.link}}">{{item.data.title}}</a>
+        </h2>
+        <p>{{item.data.description}}</p>
+      </aside>
+    </li>
+  {% endfor %}
+{% endif %}

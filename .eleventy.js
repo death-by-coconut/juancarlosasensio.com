@@ -6,6 +6,10 @@ const fs = require('fs');
 const dateFilter = require('./src/filters/date-filter.js');
 const markdownFilter = require('./src/filters/markdown-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
+const onlyUniqueFilter = require('./src/filters/only-unique-filter.js');
+const getUniqueTagsList = require('./src/filters/getUniqueTagsList.js');
+const cssmin = require('./src/filters/css-minify-filter.js');
+
 
 // Import transforms
 const htmlMinTransform = require('./src/transforms/html-min-transform.js');
@@ -19,9 +23,13 @@ module.exports = function(config) {
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
+  config.addFilter("getUniqueTagsList", getUniqueTagsList);
+  config.addFilter("onlyUniqueFilter", onlyUniqueFilter);
+  config.addFilter("cssmin", cssmin);
 
   // Layout aliases
   config.addLayoutAlias('home', 'layouts/home.njk');
+  config.addLayoutAlias('demos', 'layouts/demos-base.njk')
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -37,23 +45,31 @@ module.exports = function(config) {
   config.addPassthroughCopy('src/robots.txt');
 
   const now = new Date();
-
+  
   // Custom collections
+  config.addCollection("allMyContent", function(collectionApi) {
+    return collectionApi.getAll();
+  });
+
   const livePosts = post => post.date <= now && !post.data.draft;
-  config.addCollection('posts', collection => {
+  
+  config.addCollection('posts', collectionApi => {
     return [
-      ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)
+      ...collectionApi.getFilteredByGlob('./src/posts/*.md').filter(livePosts)
     ].reverse();
   });
 
-  config.addCollection('pens', collection => {
+
+  config.addCollection('demos', collectionApi => {
     return [
-      ...collection.getFilteredByGlob('./src/pens/*.md')
+      ...collectionApi.getFilteredByGlob('./src/demos/*.md')
     ].reverse();
   });
 
-  config.addCollection('postFeed', collection => {
-    return [...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
+  // config.addCollection('demoTags', getDemosUniqueTags)
+
+  config.addCollection('postFeed', collectionApi => {
+    return [...collectionApi.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
       .reverse()
       .slice(0, site.maxPostsPerPage);
   });

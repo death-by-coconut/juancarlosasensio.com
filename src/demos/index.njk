@@ -1,0 +1,48 @@
+---
+title: 'Demos'
+permalink: '/demos/index.html'
+---
+
+{% extends 'layouts/demos-base.njk' %}
+
+{% set demoList = collections.demos %}
+{% set demoNavItems = demoList | getUniqueTagsList %}
+{% set css %}
+{% for item in demoNavItems %}
+      .filter-{{ item }} nav li.{{ item }} a {
+        color: var(--color-accent);
+        border-bottom: solid var(--border);
+      }
+
+      .filter-{{ item }} ul.list li:not(.{{ item }}) {
+        display: none;
+      }
+    {% endfor %}
+{% endset %}
+
+{% block head %}
+  <style>
+    {{css | cssmin | safe}}
+  </style>
+{% endblock %}
+
+{% block content %}
+  <main>
+    <article class="">
+      <header>
+        <h1>Demos</h1>
+        <p>
+            This is a summary of some of
+            <a href="https://twitter.com/toysoldier182">Juan Carlos's</a> work on
+            <a href="https://codepen.io/jcasensio">CodePen</a>.
+          </p>
+      </header>
+      <nav>
+        {% include "partials/components/demo-nav-items.njk" %}
+      </nav>
+      <ul class="list">
+        {% include "partials/components/demo-list.njk" %}
+      </ul>
+    </article>
+  </main>
+{% endblock %}

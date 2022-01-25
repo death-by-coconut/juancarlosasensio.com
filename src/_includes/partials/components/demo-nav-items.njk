@@ -1,0 +1,9 @@
+<ul>
+  {% if demoNavItems.length >= 1 %}
+    {% for demoTag in demoNavItems %}
+      <li class="{{demoTag}}">
+        <a data-filter="{{demoTag}}" href="#">{{demoTag | capitalize}}</a>
+      </li>
+    {% endfor %}
+  {% endif %}
+</ul>
