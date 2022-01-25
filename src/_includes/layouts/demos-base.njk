@@ -11,10 +11,13 @@
     <style>
       {% include "css/demos.css" %}
     </style>
+
+    {% block head %}{% endblock %}
+
   </head>
 
   <body translate="no">
-    {{ content | safe }}
+    {% block content %}{% endblock %}
     <script>
       {% include "js/demos-script.js" %}
     </script>

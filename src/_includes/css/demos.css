@@ -149,8 +149,6 @@
       border-bottom: var(--border) solid var(--color-fg);
     }
 
-    .filter-javascript nav li.javascript a,
-    .filter-react nav li.react a,
     .filter-audio nav li.audio a,
     .filter-css nav li.css a,
     .filter-games nav li.games a,
@@ -160,8 +158,6 @@
       border-bottom: solid var(--border);
     }
 
-    .filter-javascript ul.list li:not(.javascript),
-    .filter-react ul.list li:not(.react),
     .filter-audio ul.list li:not(.audio),
     .filter-css ul.list li:not(.css),
     .filter-games ul.list li:not(.games),
