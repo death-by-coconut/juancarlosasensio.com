@@ -1,7 +1,6 @@
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const fs = require('fs');
-const CleanCSS = require("clean-css");
 
 // Import filters
 const dateFilter = require('./src/filters/date-filter.js');
@@ -9,6 +8,8 @@ const markdownFilter = require('./src/filters/markdown-filter.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
 const onlyUniqueFilter = require('./src/filters/only-unique-filter.js');
 const getUniqueTagsList = require('./src/filters/getUniqueTagsList.js');
+const cssmin = require('./src/filters/css-minify-filter.js');
+
 
 // Import transforms
 const htmlMinTransform = require('./src/transforms/html-min-transform.js');
@@ -24,9 +25,7 @@ module.exports = function(config) {
   config.addFilter('w3DateFilter', w3DateFilter);
   config.addFilter("getUniqueTagsList", getUniqueTagsList);
   config.addFilter("onlyUniqueFilter", onlyUniqueFilter);
-  config.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
+  config.addFilter("cssmin", cssmin);
 
   // Layout aliases
   config.addLayoutAlias('home', 'layouts/home.njk');

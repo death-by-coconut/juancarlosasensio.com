@@ -149,22 +149,15 @@
       border-bottom: var(--border) solid var(--color-fg);
     }
 
-    .filter-audio nav li.audio a,
-    .filter-css nav li.css a,
-    .filter-games nav li.games a,
-    .filter-misc nav li.misc a,
-    .filter-visual nav li.visual a {
+    /* Example classes for filtering to work with demos-script.js */
+    /* .filter-audio nav li.audio a {
       color: var(--color-accent);
       border-bottom: solid var(--border);
     }
 
-    .filter-audio ul.list li:not(.audio),
-    .filter-css ul.list li:not(.css),
-    .filter-games ul.list li:not(.games),
-    .filter-misc ul.list li:not(.misc),
-    .filter-visual ul.list li:not(.visual) {
+    .filter-audio ul.list li:not(.audio){
       display: none;
-    }
+    } */
 
     ul {
       list-style: none;

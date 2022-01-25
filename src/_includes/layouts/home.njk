@@ -10,11 +10,6 @@
 {% set postListHeading = postsHeading %}
 {% set postListItems = collections.postFeed %}
 
-{# Pen list content #}
-{# TODO: fix demo list styles on homepage #}
-{# {% set demoListHeading = pensHeading %}
-{% set demoList = collections.demos %} #}
-
 {# Archive link #}
 {% if postListItems.length < collections.posts.length %}
   {% set paginationNextText = archiveButtonText %}
@@ -33,7 +28,6 @@
 
     {% include "partials/components/intro.njk" %}
     {% include "partials/components/post-list.njk" %}
-    {% include "partials/components/demo-list.njk" %}
     {% include "partials/components/pagination.njk" %}
   </main>
 {% endblock %}
