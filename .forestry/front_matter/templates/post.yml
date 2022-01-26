@@ -22,6 +22,7 @@ fields:
   label: image
 pages:
 - src/posts/beyond-confidence.md
+- src/posts/creating-a-digital-garden.md
 - src/posts/distractions-vs.opportunities.md
 - src/posts/expertise-vs.experience.md
 - src/posts/mix-and-match.md
