@@ -11,3 +11,19 @@ fields:
 - type: list
   name: tags
   label: tags
+- name: belongs_to_content_of_type
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: belongs_to_content_of_type
+  description: Determines which content type/directory it belongs to
+- name: belongs_to_specific_file_or_page
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: belongs_to_specific_file_or_page
+  description: Determines which specific file it belongs to
