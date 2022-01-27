@@ -1,6 +1,7 @@
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const fs = require('fs');
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 
 // Import filters
 const dateFilter = require('./src/filters/date-filter.js');
@@ -77,10 +78,11 @@ module.exports = function(config) {
   // Plugins
   config.addPlugin(rssPlugin);
   config.addPlugin(syntaxHighlight);
+  config.addPlugin(UpgradeHelper);
   
   /* Forestry instant previews 
   if( process.env.ELEVENTY_ENV == "staging" ) {
-    eleventyConfig.setBrowserSyncConfig({
+    config.setBrowserSyncConfig({
       host: "0.0.0.0"
     });
   }*/
