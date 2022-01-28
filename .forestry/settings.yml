@@ -7,6 +7,13 @@ sections:
 - type: heading
   label: Content
 - type: directory
+  path: src/content-updates
+  label: Content Updates
+  create: documents
+  match: "**/*"
+  templates:
+  - content-update
+- type: directory
   path: src/demos
   label: Demos (CodePen)
   create: documents
