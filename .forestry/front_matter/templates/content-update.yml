@@ -24,3 +24,5 @@ fields:
     max: 
   label: belongs_to_specific_file_or_page
   description: Determines which specific file it belongs to
+pages:
+- src/content-updates/1.md
