@@ -32,4 +32,4 @@ which confined me to the spin bike
 
 from where I can write a verse in the name of efficiency
 
-and get a glimpse of eternity, rising above all the Great Forces without shame.
+and get a glimpse of eternity, rising above all the Great Forces with no shame.
