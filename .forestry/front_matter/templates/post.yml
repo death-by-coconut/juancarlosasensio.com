@@ -21,6 +21,7 @@ fields:
     maxSize: 64
   label: image
 pages:
+- src/posts/any-feedback.md
 - src/posts/beyond-confidence.md
 - src/posts/bread-then-courage.md
 - src/posts/creating-a-digital-garden.md
