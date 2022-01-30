@@ -1,0 +1,13 @@
+{% set demoTitle = title %}
+{% set allDemoContentUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
+{% set currentDemoContentUpdates = allDemoContentUpdates | contentUpdatesOfType('demos') %}
+
+<h1>{{ demoTitle }}</h1>
+
+{% if currentDemoContentUpdates.length %}
+  <ul>
+    {% for item in currentDemoContentUpdates | reverse %}
+      <a href="{{item.url}}">{{item.data.title}}</a>
+    {% endfor %}
+  </ul>
+{% endif %}
