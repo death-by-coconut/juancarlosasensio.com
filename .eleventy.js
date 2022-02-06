@@ -11,6 +11,7 @@ const onlyUniqueFilter = require('./src/filters/only-unique-filter.js');
 const getUniqueTagsList = require('./src/filters/getUniqueTagsList.js');
 const cssmin = require('./src/filters/css-minify-filter.js');
 const contentUpdatesOfType = require('./src/filters/contentUpdatesOfType')
+const contentUpdatesForDemo = require('./src/filters/contentUpdatesForDemo')
 
 
 // Import transforms
@@ -29,6 +30,7 @@ module.exports = function(config) {
   config.addFilter("onlyUniqueFilter", onlyUniqueFilter);
   config.addFilter("cssmin", cssmin);
   config.addFilter("contentUpdatesOfType",contentUpdatesOfType);
+  config.addFilter("contentUpdatesForDemo", contentUpdatesForDemo);
 
   // Layout aliases
   config.addLayoutAlias('home', 'layouts/home.njk');

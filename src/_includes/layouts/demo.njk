@@ -1,15 +1,22 @@
 {% set demoTitle = title %}
-{% set currentDemoUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
+{% set allDemoUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
+{# Need to figure out how to get content updates only for this specific demo 
+https://www.11ty.dev/docs/languages/nunjucks/#usage-4 
+#}
+{% set currentDemoUpdates = allDemoUpdates | contentUpdatesForDemo('Comparator of Repos') %}
 
 <h1>{{ demoTitle }}</h1>
-
 {% if currentDemoUpdates.length %}
   <ul>
     {% for item in currentDemoUpdates | reverse %}
       <li>
         {# This line ↓↓ returns the HTML output (what .md files are compiled into) EXACTLY the way we want it!! ↓↓ #}
         {{ item.templateContent | truncate(100) | safe }}
-        <a href="{{item.url}}">{{item.data.when}}</a>
+        {% if item.data.date %}
+          <a href="{{item.url}}">
+            <time datetime="{{ item.data.date | w3DateFilter }}" class="dt-published">{{ item.data.date | dateFilter }}</time>
+          </a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
