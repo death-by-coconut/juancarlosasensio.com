@@ -42,5 +42,6 @@ fields:
 pages:
 - src/demos/ajax-type-ahead.md
 - src/demos/comparator-of-repos.md
+- src/demos/guess-riot.md
 - src/demos/simple-calc.md
 - src/demos/tome-sleuth.md
