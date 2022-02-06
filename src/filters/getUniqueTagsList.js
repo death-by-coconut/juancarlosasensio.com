@@ -1,9 +1,9 @@
 const onlyUniqueFilter = require('./only-unique-filter');
   
-module.exports = getUniqueTagsList = (collection) => {
+module.exports = getUniqueTagsList = (collectionApi) => {
   let tags = [];
 
-  collection.forEach(item => {
+  collectionApi.forEach(item => {
     tags = [...tags, ...item.data.tags]
   })
   return tags.filter(onlyUniqueFilter)

@@ -10,6 +10,8 @@ const w3DateFilter = require('./src/filters/w3-date-filter.js');
 const onlyUniqueFilter = require('./src/filters/only-unique-filter.js');
 const getUniqueTagsList = require('./src/filters/getUniqueTagsList.js');
 const cssmin = require('./src/filters/css-minify-filter.js');
+const contentUpdatesOfType = require('./src/filters/contentUpdatesOfType')
+const contentUpdatesForDemo = require('./src/filters/contentUpdatesForDemo')
 
 
 // Import transforms
@@ -27,6 +29,8 @@ module.exports = function(config) {
   config.addFilter("getUniqueTagsList", getUniqueTagsList);
   config.addFilter("onlyUniqueFilter", onlyUniqueFilter);
   config.addFilter("cssmin", cssmin);
+  config.addFilter("contentUpdatesOfType",contentUpdatesOfType);
+  config.addFilter("contentUpdatesForDemo", contentUpdatesForDemo);
 
   // Layout aliases
   config.addLayoutAlias('home', 'layouts/home.njk');
@@ -67,7 +71,11 @@ module.exports = function(config) {
     ].reverse();
   });
 
-  // config.addCollection('demoTags', getDemosUniqueTags)
+    config.addCollection('contentUpdates', collectionApi => {
+    return [
+      ...collectionApi.getFilteredByGlob('./src/content-updates/*.md')
+    ].reverse();
+  });
 
   config.addCollection('postFeed', collectionApi => {
     return [...collectionApi.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]

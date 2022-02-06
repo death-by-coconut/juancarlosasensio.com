@@ -1,0 +1,12 @@
+---
+title: "All Content Updates"
+---
+
+<h1>{{ title }}</h1>
+
+{% set demoContentUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
+{% set postContentUpdates = collections.contentUpdates | contentUpdatesOfType('posts') %}
+
+<p>All content updates: {{ collections.contentUpdates.length }}</p>
+<p>Demo content updates: {{ demoContentUpdates.length }}</p>
+<p>Post content updates: {{ postContentUpdates.length }}</p>
