@@ -1,12 +1,11 @@
 {% set demoTitle = title %}
-{% set allDemoContentUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
-{% set currentDemoContentUpdates = allDemoContentUpdates | contentUpdatesOfType('demos') %}
+{% set currentDemoUpdates = collections.contentUpdates | contentUpdatesOfType('demos') %}
 
 <h1>{{ demoTitle }}</h1>
 
-{% if currentDemoContentUpdates.length %}
+{% if currentDemoUpdates.length %}
   <ul>
-    {% for item in currentDemoContentUpdates | reverse %}
+    {% for item in currentDemoUpdates | reverse %}
       <li>
         {# This line ↓↓ returns the HTML output (what .md files are compiled into) EXACTLY the way we want it!! ↓↓ #}
         {{ item.templateContent | truncate(100) | safe }}
