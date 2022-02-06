@@ -7,7 +7,17 @@
 {% if currentDemoContentUpdates.length %}
   <ul>
     {% for item in currentDemoContentUpdates | reverse %}
-      <a href="{{item.url}}">{{item.data.title}}</a>
+      <li>
+        {# This line ↓↓ returns the HTML output (what .md files are compiled into) EXACTLY the way we want it!! ↓↓ #}
+        {{ item.templateContent | truncate(100) | safe }}
+        <a href="{{item.url}}">{{item.data.when}}</a>
+      </li>
     {% endfor %}
   </ul>
 {% endif %}
+
+{# This line ↓↓ returns frontMatter + content in a strange format ↓↓ #}
+{# {% renderFile "./src/content-updates/1.md" %} #}
+
+{# This line ↓↓ returns only the raw content without .md formatting!! ↓↓ #}
+{# {{ item.template.frontMatter.content }} #}
