@@ -12,7 +12,7 @@ surprisingly,
 
 just like the last time.
 
-At the time before.
+And the time before.
 
 Things, all of them, remain in darkness.
 
